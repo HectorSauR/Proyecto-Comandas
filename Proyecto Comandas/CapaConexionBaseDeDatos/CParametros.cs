@@ -27,14 +27,14 @@ namespace CapaConexionBaseDeDatos
         //-- ** Contructores
 
         // Constructor de Entrada
-        public listParam(string ObjNom, Object ObjVal)
+        public CParametros(string ObjNom, Object ObjVal)
         {
             Nom = ObjNom;
             Val = ObjVal;
             Dir = ParameterDirection.Input;
         }
         // Constructor de salida
-        public listParam(String ObjNom, SqlDbType ObjTDato, Int32 Objtam)
+        public CParametros(String ObjNom, SqlDbType ObjTDato, Int32 Objtam)
         {
             Nom = ObjNom;
             TDato = ObjTDato;
