@@ -35,8 +35,8 @@ namespace CapaPresentacion
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_platillo = new System.Windows.Forms.Label();
+            this.lbl_bebida = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,6 +50,8 @@ namespace CapaPresentacion
             // 
             this.dgv_platillos_activos.AllowUserToAddRows = false;
             this.dgv_platillos_activos.AllowUserToDeleteRows = false;
+            this.dgv_platillos_activos.AllowUserToResizeRows = false;
+            this.dgv_platillos_activos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_platillos_activos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_platillos_activos.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgv_platillos_activos.Location = new System.Drawing.Point(700, 93);
@@ -63,6 +65,8 @@ namespace CapaPresentacion
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.Location = new System.Drawing.Point(31, 93);
@@ -76,6 +80,8 @@ namespace CapaPresentacion
             // 
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AllowUserToResizeRows = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView3.Location = new System.Drawing.Point(406, 93);
@@ -89,6 +95,8 @@ namespace CapaPresentacion
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView2.Location = new System.Drawing.Point(31, 328);
@@ -118,31 +126,33 @@ namespace CapaPresentacion
             this.label1.TabIndex = 6;
             this.label1.Text = "Cantidad";
             // 
-            // label2
+            // lbl_platillo
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(172)))), ((int)(((byte)(172)))));
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-            this.label2.Location = new System.Drawing.Point(115, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 24);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Platillo";
+            this.lbl_platillo.AutoSize = true;
+            this.lbl_platillo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(172)))), ((int)(((byte)(172)))));
+            this.lbl_platillo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbl_platillo.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_platillo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.lbl_platillo.Location = new System.Drawing.Point(115, 66);
+            this.lbl_platillo.Name = "lbl_platillo";
+            this.lbl_platillo.Size = new System.Drawing.Size(63, 24);
+            this.lbl_platillo.TabIndex = 7;
+            this.lbl_platillo.Text = "Platillo";
+            this.lbl_platillo.DoubleClick += new System.EventHandler(this.lbl_platillo_DoubleClick);
             // 
-            // label3
+            // lbl_bebida
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(172)))), ((int)(((byte)(172)))));
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-            this.label3.Location = new System.Drawing.Point(493, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 24);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Bebida";
+            this.lbl_bebida.AutoSize = true;
+            this.lbl_bebida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(172)))), ((int)(((byte)(172)))));
+            this.lbl_bebida.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbl_bebida.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_bebida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.lbl_bebida.Location = new System.Drawing.Point(493, 66);
+            this.lbl_bebida.Name = "lbl_bebida";
+            this.lbl_bebida.Size = new System.Drawing.Size(64, 24);
+            this.lbl_bebida.TabIndex = 8;
+            this.lbl_bebida.Text = "Bebida";
+            this.lbl_bebida.DoubleClick += new System.EventHandler(this.lbl_bebida_DoubleClick);
             // 
             // label4
             // 
@@ -191,8 +201,8 @@ namespace CapaPresentacion
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_bebida);
+            this.Controls.Add(this.lbl_platillo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView2);
@@ -221,8 +231,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_platillo;
+        private System.Windows.Forms.Label lbl_bebida;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

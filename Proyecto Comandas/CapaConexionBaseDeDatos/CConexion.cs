@@ -10,7 +10,7 @@ namespace CapaConexionBaseDeDatos
 {
     class CConexion
     {
-        SqlConnection Conexion = new SqlConnection("Server =LAPTOP-NETFLE8Q\\SQLEXPRESS; DataBase = BD_Restaurante; Integrated Security = true");
+        SqlConnection Conexion = new SqlConnection("Server =LAPTOP-NETFLE8Q\\SQLEXPRESS; DataBase = BD_Comandas; Integrated Security = true");
         //LAPTOP-NETFLE8Q\\SQLEXPRESS
         //HOUSE-PC\\SQLEXPRESS
         //LAPTOP-6F7NE1HE\\SQLEXPRESS

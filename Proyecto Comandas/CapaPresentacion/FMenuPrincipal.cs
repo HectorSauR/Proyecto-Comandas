@@ -18,11 +18,16 @@ namespace CapaPresentacion
         }
 
         private void FMenuPrincipal_Load(object sender, EventArgs e)
-        {
-            MessageBox.Show("Bienvenido!");
+        { 
+
         }
 
-        private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void lbl_platillo_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_bebida_DoubleClick(object sender, EventArgs e)
         {
 
         }
