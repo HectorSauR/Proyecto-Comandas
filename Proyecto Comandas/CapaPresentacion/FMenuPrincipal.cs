@@ -106,7 +106,7 @@ namespace CapaPresentacion
 
                 conn.EjectuarPA("registrarVenta", ListP);
 
-                MessageBox.Show(ListP[0].Val.ToString());
+                //MessageBox.Show(ListP[0].Val.ToString());
                 
                 ListP.Clear();
                 actualizarTotalCaja();
