@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CapaConexionBaseDeDatos
 {
-    class CParametros
+    public class CParametros
     {
         //-- ** Atributos de un Parametro
         private String _Nom;

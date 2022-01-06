@@ -8,12 +8,10 @@ using System.Data.SqlClient;
 
 namespace CapaConexionBaseDeDatos
 {
-    class CConexion
+    public class CConexion
     {
-        SqlConnection Conexion = new SqlConnection("Server =LAPTOP-NETFLE8Q\\SQLEXPRESS; DataBase = BD_Comandas; Integrated Security = true");
+        SqlConnection Conexion = new SqlConnection("Server =LAPTOP-NETFLE8Q\\SQLEXPRESS; DataBase = DB_Comandas; Integrated Security = true");
         //LAPTOP-NETFLE8Q\\SQLEXPRESS
-        //HOUSE-PC\\SQLEXPRESS
-        //LAPTOP-6F7NE1HE\\SQLEXPRESS
 
         //Metodos abrir y cerrar conexion.
         void abrirConexion()

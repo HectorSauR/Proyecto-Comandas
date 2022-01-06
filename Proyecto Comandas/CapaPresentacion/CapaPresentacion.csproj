@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bebida\FRegBebida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bebida\FRegBebida.Designer.cs">
+      <DependentUpon>FRegBebida.cs</DependentUpon>
+    </Compile>
     <Compile Include="FMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FMenuPrincipal.Designer.cs">
       <DependentUpon>FMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Platillo\FRegPlatillo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Platillo\FRegPlatillo.Designer.cs">
+      <DependentUpon>FRegPlatillo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Bebida\FRegBebida.resx">
+      <DependentUpon>FRegBebida.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FMenuPrincipal.resx">
       <DependentUpon>FMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Platillo\FRegPlatillo.resx">
+      <DependentUpon>FRegPlatillo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -80,6 +98,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaConexionBaseDeDatos\CapaConexionBaseDeDatos.csproj">
+      <Project>{8f29e581-af36-49c8-873a-dc44e3b4de64}</Project>
+      <Name>CapaConexionBaseDeDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaLogica\CapaLogica.csproj">
       <Project>{ef98842f-31ca-4f27-8f00-7ad8d439be3f}</Project>
       <Name>CapaLogica</Name>
