@@ -38,6 +38,7 @@ namespace CapaPresentacion
         {
             actualizarDGV();
             actualizarNumOrden();
+            actualizarTotalCaja();
             //MessageBox.Show(obtenerID(2).ToString());
         }
 
@@ -106,16 +107,33 @@ namespace CapaPresentacion
                 conn.EjectuarPA("registrarVenta", ListP);
 
                 MessageBox.Show(ListP[0].Val.ToString());
+                
+                ListP.Clear();
+                actualizarTotalCaja();
+                DataTable dt = new DataTable();
+                dgv_alimentos.DataSource = dt;
+                dgv_orden_bebidas.DataSource = dt;
+
+                actualizarNumOrden();
+                actualizarDGV();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            actualizarNumOrden();
-
         }
 
+        public void actualizarTotalCaja()
+        {
+            List<CParametros> ListP = new List<CParametros>();
+
+            ListP.Add(new CParametros("@total", SqlDbType.VarChar, 100));
+
+            conn.EjectuarPA("obtenerVentaDiaria", ListP);
+
+            lbl_totalCaja.Text = "$" + ListP[0].Val.ToString();
+        }
         private void dgv_platillo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string temp = dgv_platillo.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -132,9 +150,9 @@ namespace CapaPresentacion
 
             List<CParametros> ListP = new List<CParametros>();
 
-            ListP.Add(new CParametros("idOrden", numeroOrden));
-            ListP.Add(new CParametros("idPlatillo", idPlatillo));
-            ListP.Add(new CParametros("cantidad", cantidad));
+            ListP.Add(new CParametros("@idOrden", numeroOrden));
+            ListP.Add(new CParametros("@idPlatillo", idPlatillo));
+            ListP.Add(new CParametros("@cantidad", cantidad));
 
             try
             {
@@ -177,9 +195,9 @@ namespace CapaPresentacion
 
             List<CParametros> ListP = new List<CParametros>();
 
-            ListP.Add(new CParametros("idOrden", numeroOrden));
-            ListP.Add(new CParametros("idBebida", idBebida));
-            ListP.Add(new CParametros("cantidad", cantidad));
+            ListP.Add(new CParametros("@idOrden", numeroOrden));
+            ListP.Add(new CParametros("@idBebida", idBebida));
+            ListP.Add(new CParametros("@cantidad", cantidad));
             try
             {
                 conn.EjectuarPA("registrarOrdenBebida", ListP);
@@ -193,6 +211,49 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dgv_platillos_activos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string temp = dgv_platillos_activos.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            int id = int.Parse(temp);
+
+            List<CParametros> ListP = new List<CParametros>();
+
+            ListP.Add(new CParametros("@id", id));
+
+            try
+            {
+                conn.EjectuarPA("confirmarVenta", ListP);
+
+                actualizarDGV();
+                actualizarTotalCaja();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void lbl_activas_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_DoubleClick(object sender, EventArgs e)
+        {
+            List<CParametros> ListP = new List<CParametros>();
+            string msg;
+
+            ListP.Add(new CParametros("@ganancia", SqlDbType.VarChar,100));
+
+            conn.EjectuarPA("verGanancias", ListP);
+
+            msg = ListP[0].Val.ToString();
+
+            MessageBox.Show("La ganancia diaria es de "+msg);
         }
     }
 }

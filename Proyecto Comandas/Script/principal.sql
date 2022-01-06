@@ -109,3 +109,16 @@ go
 alter procedure verVentasActivas as
     select id_venta as ID,total as Total from venta where estado = 'P'
 go
+
+create procedure verResumenVenta
+    @id int
+as
+    select distinct * 
+    from detalle_venta
+    join orden_alimentos on detalle_venta.id_orden_alimentos = orden_alimentos.id_orden_alimento
+    join orden_bebidas on detalle_venta.id_orden_bebida = orden_bebidas.id_orden_bebida
+    join platillo on orden_alimentos.id_platillo = platillo.id_platillo
+    join bebida on orden_bebidas.id_bebida = bebida.id_bebida
+    where id_orden_alimento = 2 and orden_bebidas.id_orden_bebida = 2
+
+go

@@ -68,6 +68,7 @@ namespace CapaPresentacion
             this.dgv_platillos_activos.RowHeadersVisible = false;
             this.dgv_platillos_activos.Size = new System.Drawing.Size(203, 211);
             this.dgv_platillos_activos.TabIndex = 0;
+            this.dgv_platillos_activos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_platillos_activos_CellContentClick);
             // 
             // dgv_platillo
             // 
@@ -178,6 +179,7 @@ namespace CapaPresentacion
             this.lbl_activas.Size = new System.Drawing.Size(65, 24);
             this.lbl_activas.TabIndex = 10;
             this.lbl_activas.Text = "Activas";
+            this.lbl_activas.DoubleClick += new System.EventHandler(this.lbl_activas_DoubleClick);
             // 
             // lbl_orden
             // 
@@ -205,6 +207,7 @@ namespace CapaPresentacion
             this.label2.Size = new System.Drawing.Size(111, 24);
             this.label2.TabIndex = 12;
             this.label2.Text = "Total en caja:";
+            this.label2.DoubleClick += new System.EventHandler(this.label2_DoubleClick);
             // 
             // lbl_bebida
             // 
@@ -276,7 +279,7 @@ namespace CapaPresentacion
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(106)))), ((int)(((byte)(123)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(126)))), ((int)(((byte)(141)))));
             this.panel1.Controls.Add(this.btnRegistrar);
             this.panel1.Controls.Add(this.lbl_totalCaja);
             this.panel1.Controls.Add(this.label2);

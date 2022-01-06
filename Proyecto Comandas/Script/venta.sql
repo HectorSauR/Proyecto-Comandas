@@ -169,5 +169,86 @@ go
 
 select * from orden_bebidas
 go
+alter procedure obtenerVentaDiaria 
+    @total varchar(100) out
+    as
+    set @total =((
+        select sum((platillo.precio_venta * orden_alimentos.cantidad)) as total_alimentos
+        from orden_alimentos
+        join platillo on orden_alimentos.id_platillo = platillo.id_platillo
+        join detalle_venta on orden_alimentos.id_orden_alimento = detalle_venta.id_orden_alimentos
+        join venta on venta.id_detalle_venta = detalle_venta.id_detalle_venta
+        where convert(date,fecha) = '2022-01-06' and estado = 'C'
+    )+(
+        select  sum((bebida.precio_venta * orden_bebidas.cantidad)) as total_alimentos
+        from orden_bebidas
+        join bebida on orden_bebidas.id_bebida = bebida.id_bebida
+        join detalle_venta on orden_bebidas.id_orden_bebida = detalle_venta.id_orden_bebida
+        join venta on venta.id_detalle_venta = detalle_venta.id_detalle_venta
+        where convert(date,fecha) = '2022-01-06' and estado = 'C'
+    ))
+go
+
+
+
+
+select * from orden_alimentos
+go
+
+-- 1 = 11 2 = 11
+
+select * from venta
+go
+
+create procedure confirmarVenta
+    @id int
+as
+    update venta 
+    set estado = 'C'
+    where id_venta = @id 
+go
+
+alter procedure verGanancias 
+    @ganancia varchar(100) out
+as
+    declare @venta money
+    declare @costo money
+
+    set @venta = ((
+            select sum((platillo.precio_venta * orden_alimentos.cantidad)) as total_alimentos
+            from orden_alimentos
+            join platillo on orden_alimentos.id_platillo = platillo.id_platillo
+            join detalle_venta on orden_alimentos.id_orden_alimento = detalle_venta.id_orden_alimentos
+            join venta on venta.id_detalle_venta = detalle_venta.id_detalle_venta
+            where convert(date,fecha) = '2022-01-06' and estado = 'C'
+        )+(
+            select  sum((bebida.precio_venta * orden_bebidas.cantidad)) as total_alimentos
+            from orden_bebidas
+            join bebida on orden_bebidas.id_bebida = bebida.id_bebida
+            join detalle_venta on orden_bebidas.id_orden_bebida = detalle_venta.id_orden_bebida
+            join venta on venta.id_detalle_venta = detalle_venta.id_detalle_venta
+            where convert(date,fecha) = '2022-01-06' and estado = 'C'
+        ))
+
+    set @costo = (
+            select sum((platillo.costo_preparacion * orden_alimentos.cantidad)) as total_alimentos
+            from orden_alimentos
+            join platillo on orden_alimentos.id_platillo = platillo.id_platillo
+            join detalle_venta on orden_alimentos.id_orden_alimento = detalle_venta.id_orden_alimentos
+            join venta on venta.id_detalle_venta = detalle_venta.id_detalle_venta
+            where convert(date,fecha) = '2022-01-06' and estado = 'C'
+        )+(
+            select  sum((bebida.costo * orden_bebidas.cantidad)) as total_alimentos
+            from orden_bebidas
+            join bebida on orden_bebidas.id_bebida = bebida.id_bebida
+            join detalle_venta on orden_bebidas.id_orden_bebida = detalle_venta.id_orden_bebida
+            join venta on venta.id_detalle_venta = detalle_venta.id_detalle_venta
+            where convert(date,fecha) = '2022-01-06' and estado = 'C'        
+        )
+
+    set @ganancia = convert(varchar(100),@venta - @costo)
+
+go
+
 
     
