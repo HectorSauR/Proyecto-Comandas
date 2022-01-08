@@ -29,44 +29,27 @@ namespace CapaPresentacion.Venta
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_orden_bebidas = new System.Windows.Forms.DataGridView();
-            this.dgv_alimentos = new System.Windows.Forms.DataGridView();
+            this.dgv_orden = new System.Windows.Forms.DataGridView();
             this.lbl_orden = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_orden_bebidas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_alimentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_orden)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgv_orden_bebidas
+            // dgv_orden
             // 
-            this.dgv_orden_bebidas.AllowUserToAddRows = false;
-            this.dgv_orden_bebidas.AllowUserToDeleteRows = false;
-            this.dgv_orden_bebidas.AllowUserToResizeRows = false;
-            this.dgv_orden_bebidas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_orden_bebidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_orden_bebidas.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgv_orden_bebidas.Location = new System.Drawing.Point(406, 121);
-            this.dgv_orden_bebidas.Name = "dgv_orden_bebidas";
-            this.dgv_orden_bebidas.ReadOnly = true;
-            this.dgv_orden_bebidas.RowHeadersVisible = false;
-            this.dgv_orden_bebidas.Size = new System.Drawing.Size(300, 158);
-            this.dgv_orden_bebidas.TabIndex = 17;
-            // 
-            // dgv_alimentos
-            // 
-            this.dgv_alimentos.AllowUserToAddRows = false;
-            this.dgv_alimentos.AllowUserToDeleteRows = false;
-            this.dgv_alimentos.AllowUserToResizeRows = false;
-            this.dgv_alimentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_alimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_alimentos.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgv_alimentos.Location = new System.Drawing.Point(92, 121);
-            this.dgv_alimentos.Name = "dgv_alimentos";
-            this.dgv_alimentos.ReadOnly = true;
-            this.dgv_alimentos.RowHeadersVisible = false;
-            this.dgv_alimentos.Size = new System.Drawing.Size(300, 158);
-            this.dgv_alimentos.TabIndex = 16;
+            this.dgv_orden.AllowUserToAddRows = false;
+            this.dgv_orden.AllowUserToDeleteRows = false;
+            this.dgv_orden.AllowUserToResizeRows = false;
+            this.dgv_orden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_orden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_orden.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgv_orden.Location = new System.Drawing.Point(92, 121);
+            this.dgv_orden.Name = "dgv_orden";
+            this.dgv_orden.ReadOnly = true;
+            this.dgv_orden.RowHeadersVisible = false;
+            this.dgv_orden.Size = new System.Drawing.Size(621, 158);
+            this.dgv_orden.TabIndex = 16;
             // 
             // lbl_orden
             // 
@@ -111,29 +94,26 @@ namespace CapaPresentacion.Venta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(197)))), ((int)(((byte)(185)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.lbl_orden);
-            this.Controls.Add(this.dgv_orden_bebidas);
-            this.Controls.Add(this.dgv_alimentos);
+            this.Controls.Add(this.dgv_orden);
             this.Name = "FVerOrdenActiva";
             this.Text = "FVerOrdenActiva";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FVerOrdenActiva_FormClosed);
             this.Load += new System.EventHandler(this.FVerOrdenActiva_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_orden_bebidas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_alimentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_orden)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        public System.Windows.Forms.DataGridView dgv_orden_bebidas;
-        public System.Windows.Forms.DataGridView dgv_alimentos;
-        private System.Windows.Forms.Label lbl_orden;
-        private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Label lblTotal;
+        public System.Windows.Forms.DataGridView dgv_orden;
+        public System.Windows.Forms.Label lblTotal;
+        public System.Windows.Forms.Label lbl_orden;
+        public System.Windows.Forms.Button btnRegistrar;
     }
 }

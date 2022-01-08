@@ -16,26 +16,38 @@ namespace CapaPresentacion.Venta
         FMenuPrincipal frm = new FMenuPrincipal();
         CConexion conn = new CConexion();
         int numeroOrden;
-        public FVerOrdenActiva(FMenuPrincipal form , int numord)
+        public FVerOrdenActiva(FMenuPrincipal form)
         {
             InitializeComponent();
             frm = form;
-            numeroOrden = numord;
+            //numeroOrden = numord;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-
+            var id = lbl_orden.Text;
+            var total = lblTotal.Text;
+            try
+            {
+                id = id.Substring(id.IndexOf("#") + 1);
+                total = total.Substring(1);
+                frm.ejecutarOtroForm(int.Parse(id), float.Parse(total));
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void FVerOrdenActiva_Load(object sender, EventArgs e)
         {
-            List<CParametros> ListP = new List<CParametros>();
+            
+        }
 
-            ListP.Add(new CParametros("@idVenta", numeroOrden));
-
-            dgv_alimentos.DataSource = conn.Listado("verVentaAlimentos", ListP);
-            dgv_orden_bebidas.DataSource = conn.Listado("verVentaBebidas", ListP);
+        private void FVerOrdenActiva_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frm.Show();
         }
     }
 }

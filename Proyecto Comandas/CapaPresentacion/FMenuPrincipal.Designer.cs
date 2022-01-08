@@ -120,6 +120,7 @@ namespace CapaPresentacion
             this.dgv_alimentos.RowHeadersVisible = false;
             this.dgv_alimentos.Size = new System.Drawing.Size(300, 128);
             this.dgv_alimentos.TabIndex = 4;
+            this.dgv_alimentos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_alimentos_CellDoubleClick);
             // 
             // txtCantidad
             // 
@@ -262,6 +263,7 @@ namespace CapaPresentacion
             this.dgv_orden_bebidas.RowHeadersVisible = false;
             this.dgv_orden_bebidas.Size = new System.Drawing.Size(300, 128);
             this.dgv_orden_bebidas.TabIndex = 15;
+            this.dgv_orden_bebidas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_orden_bebidas_CellDoubleClick);
             // 
             // lblNumeroVenta
             // 
@@ -295,7 +297,7 @@ namespace CapaPresentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(197)))), ((int)(((byte)(185)))));
-            this.ClientSize = new System.Drawing.Size(936, 489);
+            this.ClientSize = new System.Drawing.Size(951, 489);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblNumeroVenta);
             this.Controls.Add(this.dgv_orden_bebidas);

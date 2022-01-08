@@ -1,6 +1,6 @@
 
 -- REGISTRAR PLATILLO --
-create procedure registrarPlatillo
+alter procedure registrarPlatillo
     @nombre varchar(100),
     @costoPreparacion money,
     @precioVenta money,
@@ -13,10 +13,11 @@ as
     end
     
     insert into platillo values(
-        (select count(*)+1 from platillo),
+        (select count(*) from platillo),
         @nombre,
         @costoPreparacion,
-        @precioVenta
+        @precioVenta,
+        default
     )
 
     set @msg = 'El platillo se a registrado con éxito'
@@ -33,7 +34,7 @@ go
 
 -- REGISTRAR BEBIDA --
 
-create procedure registrarBebida
+alter procedure registrarBebida
     @nombre varchar(100),
     @costoPreparacion money,
     @precioVenta money,
@@ -46,10 +47,11 @@ as
     end
     
     insert into bebida values(
-        (select count(*)+1 from bebida),
+        (select count(*) from bebida),
         @nombre,
         @costoPreparacion,
-        @precioVenta
+        @precioVenta,
+        default
     )
 
     set @msg = 'El platillo se a registrado con éxito'
@@ -66,12 +68,12 @@ go
 
 alter procedure verPlatillos AS
     select concat(id_platillo,'.- ',nombre) as Platillos from platillo
-    where id_platillo > 0
+    where id_platillo > 0 and estado = 'A'
 go
 
 alter procedure verBebidas AS
     select concat(id_bebida,'.- ',nombre) as Bebidas from bebida
-    where id_bebida > 0
+    where id_bebida > 0 and estado = 'A'
 go
 
 alter procedure verVentaAlimentos
